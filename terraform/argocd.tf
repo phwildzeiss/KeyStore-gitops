@@ -44,13 +44,13 @@ resource "helm_release" "argo_cd_app" {
 }
 
 resource "helm_release" "argo_cd_image_updater" {
-  name       = "argocd-image-updater"
-  repository = "https://argoproj.github.io/argo-helm"
-  chart      = "argocd-image-updater"
-  version    = "0.9.1" # (prüfe ggf. neueste Version)
-  namespace  = "argocd"
+  name             = "argocd-image-updater"
+  repository       = "https://argoproj.github.io/argo-helm"
+  chart            = "argocd-image-updater"
+  version          = "0.9.1" # (prüfe ggf. neueste Version)
+  namespace        = "argocd"
   create_namespace = false
-  wait       = true
+  wait             = true
 
   set {
     name  = "config.argocd.serverAddress"
