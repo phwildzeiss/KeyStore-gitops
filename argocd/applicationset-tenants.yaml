@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/MCCE2024/G7-KeyStore-gitops
+        repoURL: https://github.com/phwildzeiss/KeyStore-gitops
         revision: HEAD
         directories:
           - path: tenants/*
@@ -31,7 +31,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/MCCE2024/G7-KeyStore-gitops
+        repoURL: https://github.com/phwildzeiss/KeyStore-gitops
         targetRevision: HEAD
         path: helm-app                          # Chart-Verzeichnis
         helm:
