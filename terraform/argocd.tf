@@ -15,7 +15,7 @@ resource "helm_release" "argo_cd" {
 }
 
 locals {
-  repo_url      = "https://github.com/MCCE2024/G7-KeyStore-gitops.git"
+  repo_url      = "https://github.com/phwildzeiss/KeyStore-gitops.git"
   repo_path     = "argocd"
   app_name      = "gitops-base"
   app_namespace = "argocd"
@@ -41,4 +41,31 @@ resource "helm_release" "argo_cd_app" {
   depends_on = [
     helm_release.argo_cd
   ]
+}
+
+resource "helm_release" "argo_cd_image_updater" {
+  name       = "argocd-image-updater"
+  repository = "https://argoproj.github.io/argo-helm"
+  chart      = "argocd-image-updater"
+  version    = "0.9.1" # (prüfe ggf. neueste Version)
+  namespace  = "argocd"
+  create_namespace = false
+  wait       = true
+
+  set {
+    name  = "config.argocd.serverAddress"
+    value = "argocd-server.argocd.svc"
+  }
+
+  set {
+    name  = "config.argocd.plaintext"
+    value = "true"
+  }
+
+  set {
+    name  = "config.logLevel"
+    value = "info"
+  }
+
+  depends_on = [helm_release.argo_cd]
 }

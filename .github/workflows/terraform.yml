@@ -1,0 +1,61 @@
+name: Terraform CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    env:
+      TF_VAR_exoscale_key: ${{ secrets.EXOSCALE_KEY }}
+      TF_VAR_exoscale_secret: ${{ secrets.EXOSCALE_SECRET }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.EXOSCALE_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.EXOSCALE_SECRET }}
+      EXOSCALE_API_KEY: ${{ secrets.EXOSCALE_KEY }}
+      EXOSCALE_API_SECRET: ${{ secrets.EXOSCALE_SECRET }}
+      EXOSCALE_REGION: "at-vie-2"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.0
+
+      - name: Install Exoscale CLI
+        continue-on-error: true
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/exoscale/cli/master/install-latest.sh | sh
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: terraform/
+
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: terraform/
+
+      - name: Terraform Format Check
+        run: terraform fmt -check
+        working-directory: terraform/
+
+      - name: Apply Cluster (Phase 1)
+        run: terraform apply -target=exoscale_sks_cluster.my_sks_cluster -auto-approve
+        working-directory: terraform/
+
+      - name: Extract Kubeconfig
+        id: extract
+        run: |
+          CLUSTER_NAME=$(exo compute sks list --zone at-vie-2 --output-format json | jq -r '.[0].name')
+          exo compute sks kubeconfig "$CLUSTER_NAME" admin --zone at-vie-2 > terraform/kubeconfig
+          chmod 600 terraform/kubeconfig
+          echo "KUBECONFIG=$(pwd)/kubeconfig" >> $GITHUB_ENV
+
+      - name: Apply remaining resources (Phase 2)
+        run: terraform apply -auto-approve
+        working-directory: terraform/

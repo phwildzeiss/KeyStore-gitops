@@ -30,7 +30,7 @@ spec:
       serviceAccountName: {{.Values.tenantName}}-sa
       containers:
         - name: order-service
-          image: bennimoser/k8s-multi-tenant-order-service
+          image: {{ .Values.images.order.repository }}:{{ .Values.images.order.tag }}
           ports:
             - containerPort: 8085
           envFrom:
