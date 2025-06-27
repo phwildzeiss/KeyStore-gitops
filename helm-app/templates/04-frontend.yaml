@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: {{.Values.tenantName}}
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: {{.Values.tenantName}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      serviceAccountName: {{.Values.tenantName}}-sa
+      containers:
+        - name: frontend
+          image: {{ .Values.images.frontend.repository }}:{{ .Values.images.frontend.tag }}
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: key-store-config
+          resources:
+            requests:
+              memory: "{{.Values.resources.requests.memory}}"
+              cpu: "{{.Values.resources.requests.cpu}}"
+            limits:
+              memory: "{{.Values.resources.limits.memory}}"
+              cpu: "{{.Values.resources.limits.cpu}}"
+          securityContext:
+            runAsNonRoot: {{.Values.securityContext.runAsNonRoot}}
+            runAsUser: {{.Values.securityContext.runAsUser}}

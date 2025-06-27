@@ -1,0 +1,11 @@
+tenantName: tenant-b
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "250m"
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
