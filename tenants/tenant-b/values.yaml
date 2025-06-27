@@ -2,13 +2,13 @@ tenantName: tenant-b
 
 images:
   order:
-    repository: bennimoser/k8s-multi-tenant-order-service
+    repository: phwildzeiss/k8s-multi-tenant-order-service
     tag: "20250627184255"
   inventory:
-    repository: bennimoser/k8s-multi-tenant-inventory
+    repository: phwildzeiss/k8s-multi-tenant-inventory
     tag: "20250627184256"
   frontend:
-    repository: bennimoser/k8s-multi-tenant-frontend
+    repository: phwildzeiss/k8s-multi-tenant-frontend
     tag: "20250627184256"
 
 resources:
