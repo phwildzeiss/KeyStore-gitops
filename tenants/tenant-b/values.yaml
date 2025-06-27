@@ -1,0 +1,23 @@
+tenantName: tenant-b
+
+images:
+  order:
+    repository: bennimoser/k8s-multi-tenant-order-service
+    tag: latest
+  inventory:
+    repository: bennimoser/k8s-multi-tenant-inventory
+    tag: latest
+  frontend:
+    repository: bennimoser/k8s-multi-tenant-frontend
+    tag: latest
+
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "250m"
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
