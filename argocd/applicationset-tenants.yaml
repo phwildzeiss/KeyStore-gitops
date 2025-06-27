@@ -44,4 +44,4 @@ spec:
           argocd-image-updater.argoproj.io/docker.io.phwildzeiss.k8s-multi-tenant-inventory.update-strategy: name
 
           argocd-image-updater.argoproj.io/docker.io.phwildzeiss.k8s-multi-tenant-frontend.helm-value: images.frontend.tag
-          argocd-image-updater.argoproj.io/docker.io.phwildzeiss.k8s-multi-tenant-frontend.update-strategy: name
+          argocd-image-updater.argoproj.io/docker.io.phwildzeiss.k8s-multi-tenant-frontend.update-strategy: latest
