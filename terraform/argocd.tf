@@ -52,20 +52,20 @@ resource "helm_release" "argo_cd_image_updater" {
   create_namespace = false
   wait             = true
 
-  set {
-    name  = "config.argocd.serverAddress"
-    value = "argocd-server.argocd.svc"
-  }
-
-  set {
-    name  = "config.argocd.plaintext"
-    value = "true"
-  }
-
-  set {
-    name  = "config.logLevel"
-    value = "info"
-  }
+  set = [
+    {
+      name  = "config.argocd.serverAddress"
+      value = "argocd-server.argocd.svc"
+    },
+    {
+      name  = "config.argocd.plaintext"
+      value = "true"
+    },
+    {
+      name  = "config.logLevel"
+      value = "info"
+    }
+  ]
 
   depends_on = [helm_release.argo_cd]
 }
