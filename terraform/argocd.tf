@@ -64,6 +64,10 @@ resource "helm_release" "argo_cd_image_updater" {
         log_level = "debug"
       }
 
+      image = {
+        tag = "v0.16.0"
+      }
+
       serviceAccount = {
         create      = true
         annotations = {}
