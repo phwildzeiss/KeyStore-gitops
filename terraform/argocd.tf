@@ -59,6 +59,10 @@ resource "helm_release" "argo_cd_image_updater" {
         log_level = "debug"
       }
 
+      commandArgs = [
+      "--loglevel=debug"
+      ]
+
       image = {
         tag = "v0.16.0"
       }
