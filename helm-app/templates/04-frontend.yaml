@@ -30,9 +30,7 @@ spec:
       serviceAccountName: {{.Values.tenantName}}-sa
       containers:
         - name: frontend
-          image:
-            repository: "{{ .Values.images.frontend.repository }}"
-            tag: "{{ .Values.images.frontend.tag }}"
+          image: {{ .Values.images.frontend.repository }}:{{ .Values.images.frontend.tag }}
           ports:
             - containerPort: 8080
           envFrom:
