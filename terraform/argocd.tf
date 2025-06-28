@@ -72,7 +72,8 @@ resource "helm_release" "argo_cd_image_updater" {
       }
 
       commandArgs = [
-        "--loglevel=debug"
+        "--loglevel=debug",
+        "--dry-run=false"
       ]
 
       image = {
