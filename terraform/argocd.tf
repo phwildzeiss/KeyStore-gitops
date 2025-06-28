@@ -52,19 +52,44 @@ resource "helm_release" "argo_cd_image_updater" {
   create_namespace = false
   wait             = true
 
-  set = [
-    {
-      name  = "config.argocd.serverAddress"
-      value = "argocd-server.argocd.svc"
-    },
-    {
-      name  = "config.argocd.plaintext"
-      value = "true"
-    },
-    {
-      name  = "config.logLevel"
-      value = "info"
-    }
+ values = [
+    yamlencode({
+      config = {
+        # Registry configuration for GHCR (public registry - no credentials needed)
+        registries = [
+          {
+            name = "ghcr"
+            api_url = "https://ghcr.io"
+            prefix = "ghcr.io"
+            # credentials not needed for public GHCR repositories
+          }
+        ]
+      }
+      
+      # RBAC permissions
+      serviceAccount = {
+        create = true
+        annotations = {}
+      }
+      
+      # Resource limits
+      resources = {
+        limits = {
+          cpu = "100m"
+          memory = "128Mi"
+        }
+        requests = {
+          cpu = "50m"
+          memory = "64Mi"
+        }
+      }
+      
+      # Update interval (check every 2 minutes)
+      config = {
+        interval = "2m"
+        log_level = "info"
+      }
+    })
   ]
 
   depends_on = [helm_release.argo_cd]
