@@ -19,6 +19,20 @@ resource "helm_release" "argo_cd" {
   namespace        = "argocd"
   lint             = true
   wait             = true
+
+  values = [
+    yamlencode({
+      configs = {
+        repositories = [
+          {
+            url      = "https://github.com/phwildzeiss/KeyStore-gitops"
+            username = var.git_username
+            password = var.git_token
+          }
+        ]
+      }
+    })
+  ]
 }
 
 locals {

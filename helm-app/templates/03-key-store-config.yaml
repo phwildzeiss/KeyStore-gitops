@@ -2,8 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: key-store-config
-  namespace: {{.Values.tenantName}}
+  namespace: "{{.Values.tenantName}}"
 data:
   API_URL: http://order-service:8081
   INVENTORY_SERVICE_URL: http://inventory-service:8082
-  APP_NAME: {{.Values.tenantName}}
+  APP_NAME: "{{.Values.tenantName}}"
