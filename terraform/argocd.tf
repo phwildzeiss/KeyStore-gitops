@@ -52,6 +52,11 @@ resource "helm_release" "argo_cd_image_updater" {
   create_namespace = false
   wait             = true
 
+  set {
+    name  = "image.tag"
+    value = "v0.16.0"
+  }
+
   values = [
     yamlencode({
       config = {
