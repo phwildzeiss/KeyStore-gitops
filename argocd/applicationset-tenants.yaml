@@ -21,13 +21,13 @@ spec:
           orders=docker.io/phwildzeiss/k8s-multi-tenant-order-service
         argocd-image-updater.argoproj.io/frontend.helm.image-name: images.frontend.repository
         argocd-image-updater.argoproj.io/frontend.helm.image-tag: images.frontend.tag
-        argocd-image-updater.argoproj.io/frontend.update-strategy: alphabetical
+        argocd-image-updater.argoproj.io/frontend.update-strategy: digest
         argocd-image-updater.argoproj.io/inventory.helm.image-name: images.inventory.repository
         argocd-image-updater.argoproj.io/inventory.helm.image-tag: images.inventory.tag
-        argocd-image-updater.argoproj.io/inventory.update-strategy: alphabetical
+        argocd-image-updater.argoproj.io/inventory.update-strategy: digest
         argocd-image-updater.argoproj.io/orders.helm.image-name: images.orders.repository
         argocd-image-updater.argoproj.io/orders.helm.image-tag: images.orders.tag
-        argocd-image-updater.argoproj.io/orders.update-strategy: alphabetical
+        argocd-image-updater.argoproj.io/orders.update-strategy: digest
         argocd-image-updater.argoproj.io/write-back-method: argocd
         argocd-image-updater.argoproj.io/helm-image-policy: enabled
         argocd-image-updater.argoproj.io/frontend.force-update: "true"
