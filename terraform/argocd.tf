@@ -59,6 +59,18 @@ resource "helm_release" "argo_cd_image_updater" {
         log_level = "debug"
       }
 
+      registries_conf = {
+        registries = [
+          {
+            name        = "Docker Hub"
+            prefix      = "docker.io"
+            api_url     = "https://index.docker.io/v1/"
+            ping        = true
+            credentials = "none"
+          }
+        ]
+      }
+
       commandArgs = [
         "--loglevel=debug"
       ]
