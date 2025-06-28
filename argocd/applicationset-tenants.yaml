@@ -16,12 +16,18 @@ spec:
       name: '{{path.basename}}-app'
       annotations:
         argocd-image-updater.argoproj.io/image-list: |
-          docker.io/phwildzeiss/k8s-multi-tenant-order-service:latest,
-          docker.io/phwildzeiss/k8s-multi-tenant-inventory:latest,
-          docker.io/phwildzeiss/k8s-multi-tenant-frontend:latest
-        argocd-image-updater.argoproj.io/docker.io.phwildzeiss.k8s-multi-tenant-order-service.update-strategy: digest
-        argocd-image-updater.argoproj.io/docker.io.phwildzeiss.k8s-multi-tenant-inventory.update-strategy: digest
-        argocd-image-updater.argoproj.io/docker.io.phwildzeiss.k8s-multi-tenant-frontend.update-strategy: digest
+          orders=phwildzeiss/k8s-multi-tenant-order-service
+          inventory=phwildzeiss/k8s-multi-tenant-inventory
+          frontend=phwildzeiss/k8s-multi-tenant-frontend
+
+        argocd-image-updater.argoproj.io/orders.helm-value: images.order.tag
+        argocd-image-updater.argoproj.io/orders.update-strategy: digest
+
+        argocd-image-updater.argoproj.io/inventory.helm-value: images.inventory.tag
+        argocd-image-updater.argoproj.io/inventory.update-strategy: digest
+
+        argocd-image-updater.argoproj.io/frontend.helm-value: images.frontend.tag
+        argocd-image-updater.argoproj.io/frontend.update-strategy: digest
     spec:
       project: default
       source:
