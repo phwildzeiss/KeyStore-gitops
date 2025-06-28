@@ -40,7 +40,7 @@ spec:
         path: helm-app                          # Chart-Verzeichnis
         helm:
           valueFiles:
-            - '../{{path}}/values.yaml'            # Tenant-spezifische Werte
+            - 'tenants/{{path.basename}}'            # Tenant-spezifische Werte
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'          # z. B. tenant-a
