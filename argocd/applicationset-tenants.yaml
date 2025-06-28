@@ -37,6 +37,7 @@ spec:
 
         argocd-image-updater.argoproj.io/write-back-method: argocd
         argocd-image-updater.argoproj.io/helm-image-policy: enabled
+        argocd-image-updater.argoproj.io/debug: "true"
 
     spec:
       project: default
