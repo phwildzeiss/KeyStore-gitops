@@ -56,7 +56,7 @@ resource "helm_release" "argo_cd_image_updater" {
     yamlencode({
       config = {
         interval  = "2m"
-        log_level = "info"
+        log_level = "debug"
       }
 
       serviceAccount = {
