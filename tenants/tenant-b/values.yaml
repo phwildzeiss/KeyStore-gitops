@@ -1,10 +1,10 @@
 tenantName: tenant-b
 
 images:
-  order:
+  order-service:
     repository: docker.io/phwildzeiss/k8s-multi-tenant-order-service
     tag: "20250628113710"
-  inventory:
+  inventory-service:
     repository: docker.io/phwildzeiss/k8s-multi-tenant-inventory
     tag: "20250628104410"
   frontend:

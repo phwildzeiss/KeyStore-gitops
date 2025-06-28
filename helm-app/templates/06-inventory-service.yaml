@@ -30,7 +30,7 @@ spec:
       serviceAccountName: {{.Values.tenantName}}-sa
       containers:
         - name: inventory-service
-          image: "{{ .Values.images.inventory.repository }}:{{ .Values.images.inventory.tag }}"
+          image: "{{ .Values.images.inventory-service.repository }}:{{ .Values.images.inventory-service.tag }}"
           ports:
             - containerPort: 8080
           envFrom:
