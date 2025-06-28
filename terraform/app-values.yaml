@@ -12,17 +12,3 @@ applications:
       automated: {}
       syncOptions:
         - CreateNamespace=true
-
-  - name: tenants-applicationset
-    project: default
-    source:
-      repoURL: ${repo_url}
-      targetRevision: HEAD
-      path: argocd      # Ordner, in dem deine applicationset-tenants.yaml liegt
-      directory:
-        recurse: true
-    destination:
-      server: https://kubernetes.default.svc
-      namespace: argocd
-    syncPolicy:
-      automated: {}
