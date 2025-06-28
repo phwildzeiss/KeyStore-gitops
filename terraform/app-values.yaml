@@ -4,9 +4,7 @@ applications:
     source:
       repoURL: ${repo_url}
       targetRevision: HEAD
-      path: ${repo_path}
-    directory:
-      recurse: true  
+      path: ${repo_path} 
     destination:
       server: https://kubernetes.default.svc
       namespace: ${app_namespace}
