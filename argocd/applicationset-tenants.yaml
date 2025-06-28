@@ -16,8 +16,8 @@ spec:
       name: '{{path.basename}}-app'
       annotations:
         argocd-image-updater.argoproj.io/image-list: |
-          orders=docker.io/phwildzeiss/k8s-multi-tenant-order-service
-          inventory=docker.io/phwildzeiss/k8s-multi-tenant-inventory
+          order-service=docker.io/phwildzeiss/k8s-multi-tenant-order-service
+          inventory-service=docker.io/phwildzeiss/k8s-multi-tenant-inventory
           frontend=docker.io/phwildzeiss/k8s-multi-tenant-frontend
 
         argocd-image-updater.argoproj.io/orders.helm.image-name: images.order.repository
