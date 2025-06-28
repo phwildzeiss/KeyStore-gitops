@@ -37,10 +37,10 @@ spec:
       source:
         repoURL: https://github.com/phwildzeiss/KeyStore-gitops
         targetRevision: HEAD
-        path: helm-app                          # Chart-Verzeichnis
+        path: 'tenants/{{path.basename}}'   # Hier wird z.B. tenants/tenant-a verwendet
         helm:
           valueFiles:
-            - 'tenants/{{path.basename}}'            # Tenant-spezifische Werte
+            - 'values.yaml'            # Tenant-spezifische Werte
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'          # z. B. tenant-a
