@@ -9,7 +9,7 @@ images:
     tag: "20250627184256"
   frontend:
     repository: phwildzeiss/k8s-multi-tenant-frontend
-    tag: "20250627184256"
+    tag: "20250628091419"
 
 resources:
   requests:
