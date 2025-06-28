@@ -20,9 +20,9 @@ spec:
           inventory-service=docker.io/phwildzeiss/k8s-multi-tenant-inventory
           frontend=docker.io/phwildzeiss/k8s-multi-tenant-frontend
 
-        argocd-image-updater.argoproj.io/orders.helm.image-name: images.order.repository
-        argocd-image-updater.argoproj.io/orders.helm.image-tag: images.order.tag
-        argocd-image-updater.argoproj.io/orders.update-strategy: digest
+        argocd-image-updater.argoproj.io/order-service.helm.image-name: images.order.repository
+        argocd-image-updater.argoproj.io/order-service.helm.image-tag: images.order.tag
+        argocd-image-updater.argoproj.io/order-service.update-strategy: digest
 
         argocd-image-updater.argoproj.io/inventory.helm.image-name: images.inventory.repository
         argocd-image-updater.argoproj.io/inventory.helm.image-tag: images.inventory.tag
