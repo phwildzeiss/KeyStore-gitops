@@ -59,6 +59,20 @@ resource "helm_release" "argo_cd_image_updater" {
         log_level = "debug"
       }
 
+      git = {
+        writeBackMethod = "git"
+
+        usernameSecret = {
+          name = "image-updater-git-credentials"
+          key  = "username"
+        }
+
+        passwordSecret = {
+          name = "image-updater-git-credentials"
+          key  = "password"
+        }
+      }
+
       registries_conf = {
         registries = [
           {
@@ -104,6 +118,22 @@ resource "helm_release" "argo_cd_image_updater" {
       }
     })
   ]
+
+  depends_on = [kubernetes_secret.image_updater_git_credentials]
+}
+
+resource "kubernetes_secret" "image_updater_git_credentials" {
+  metadata {
+    name      = "image-updater-git-credentials"
+    namespace = "argocd"
+  }
+
+  data = {
+    username = base64encode(var.git_username)
+    password = base64encode(var.git_token)
+  }
+
+  type = "Opaque"
 
   depends_on = [helm_release.argo_cd]
 }
