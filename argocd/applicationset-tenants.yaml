@@ -20,16 +20,8 @@ spec:
           inventory-service=docker.io/phwildzeiss/k8s-multi-tenant-inventory
           frontend=docker.io/phwildzeiss/k8s-multi-tenant-frontend
 
-        argocd-image-updater.argoproj.io/order-service.helm.image-name: {{ .Values.images.order.repository }}
-        argocd-image-updater.argoproj.io/order-service.helm.image-tag: {{ .Values.images.order.tag }}
         argocd-image-updater.argoproj.io/order-service.update-strategy: digest
-
-        argocd-image-updater.argoproj.io/inventory.helm.image-name: {{ .Values.images.inventory.repository }}
-        argocd-image-updater.argoproj.io/inventory.helm.image-tag: {{ .Values.images.inventory.tag }}
-        argocd-image-updater.argoproj.io/inventory.update-strategy: digest
-
-        argocd-image-updater.argoproj.io/frontend.helm.image-name: {{ .Values.images.frontend.repository }}
-        argocd-image-updater.argoproj.io/frontend.helm.image-tag: {{ .Values.images.frontend.tag }}
+        argocd-image-updater.argoproj.io/inventory-service.update-strategy: digest
         argocd-image-updater.argoproj.io/frontend.update-strategy: digest
 
         argocd-image-updater.argoproj.io/write-back-method: argocd
