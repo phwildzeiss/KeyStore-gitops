@@ -15,7 +15,7 @@ spec:
     metadata:
       name: '{{path.basename}}-app'
       annotations:
-        argocd-image-updater.argoproj.io/image-list: frontend=docker.io/phwildzeiss/k8s-multi-tenant-frontend, inventory=docker.io/phwildzeiss/k8s-multi-tenant-inventory, orders=docker.io/phwildzeiss/k8s-multi-tenant-order-service
+        argocd-image-updater.argoproj.io/image-list: frontend=docker.io/phwildzeiss/k8s-multi-tenant-frontend, inventory=docker.io/phwildzeiss/k8s-multi-tenant-inventory, order=docker.io/phwildzeiss/k8s-multi-tenant-order-service
         argocd-image-updater.argoproj.io/frontend.helm.image-name: images.frontend.repository
         argocd-image-updater.argoproj.io/frontend.helm.image-tag: images.frontend.tag
         argocd-image-updater.argoproj.io/frontend.update-strategy: digest
@@ -24,10 +24,10 @@ spec:
         argocd-image-updater.argoproj.io/inventory.helm.image-tag: images.inventory.tag
         argocd-image-updater.argoproj.io/inventory.update-strategy: digest
         argocd-image-updater.argoproj.io/inventory.allow-tags: ^latest$
-        argocd-image-updater.argoproj.io/orders.helm.image-name: images.orders.repository
-        argocd-image-updater.argoproj.io/orders.helm.image-tag: images.order.tag
-        argocd-image-updater.argoproj.io/orders.update-strategy: digest
-        argocd-image-updater.argoproj.io/orders.allow-tags: ^latest$
+        argocd-image-updater.argoproj.io/order.helm.image-name: images.order.repository
+        argocd-image-updater.argoproj.io/order.helm.image-tag: images.order.tag
+        argocd-image-updater.argoproj.io/order.update-strategy: digest
+        argocd-image-updater.argoproj.io/order.allow-tags: ^latest$
         argocd-image-updater.argoproj.io/write-back-method: argocd
         argocd-image-updater.argoproj.io/helm-image-policy: enabled
         argocd-image-updater.argoproj.io/frontend.force-update: "true"
