@@ -2,13 +2,13 @@ tenantName: tenant-b
 
 images:
   order:
-    repository: phwildzeiss/k8s-multi-tenant-order-service
+    repository: docker.io/phwildzeiss/k8s-multi-tenant-order-service
     tag: latest
   inventory:
-    repository: phwildzeiss/k8s-multi-tenant-inventory
+    repository: docker.io/phwildzeiss/k8s-multi-tenant-inventory
     tag: latest
   frontend:
-    repository: phwildzeiss/k8s-multi-tenant-frontend
+    repository: docker.io/phwildzeiss/k8s-multi-tenant-frontend
     tag: latest
 
 resources:
