@@ -31,7 +31,6 @@ spec:
       containers:
         - name: order-service
           image: {{ .Values.images.order.repository }}:{{ .Values.images.order.tag }}
-          imagePullPolicy: Always
           ports:
             - containerPort: 8085
           envFrom:

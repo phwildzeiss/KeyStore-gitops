@@ -22,15 +22,18 @@ spec:
 
         argocd-image-updater.argoproj.io/order-service.helm.image-name: images.order.repository
         argocd-image-updater.argoproj.io/order-service.helm.image-tag: images.order.tag
-        argocd-image-updater.argoproj.io/order-service.update-strategy: digest
+        argocd-image-updater.argoproj.io/order-service.update-strategy: name
+        argocd-image-updater.argoproj.io/order-service.allow-tags: ^[0-9]{14}$
 
         argocd-image-updater.argoproj.io/inventory-service.helm.image-name: images.inventory.repository
         argocd-image-updater.argoproj.io/inventory-service.helm.image-tag: images.inventory.tag
-        argocd-image-updater.argoproj.io/inventory-service.update-strategy: digest
+        argocd-image-updater.argoproj.io/inventory-service.update-strategy: name
+        argocd-image-updater.argoproj.io/inventory-service.allow-tags: ^[0-9]{14}$
 
         argocd-image-updater.argoproj.io/frontend.helm.image-name: images.frontend.repository
         argocd-image-updater.argoproj.io/frontend.helm.image-tag: images.frontend.tag
-        argocd-image-updater.argoproj.io/frontend.update-strategy: digest
+        argocd-image-updater.argoproj.io/frontend.update-strategy: name
+        argocd-image-updater.argoproj.io/frontend.allow-tags: ^[0-9]{14}$
 
         argocd-image-updater.argoproj.io/write-back-method: argocd
 

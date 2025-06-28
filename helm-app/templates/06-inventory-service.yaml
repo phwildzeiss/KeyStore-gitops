@@ -31,7 +31,6 @@ spec:
       containers:
         - name: inventory-service
           image: {{ .Values.images.inventory.repository }}:{{ .Values.images.inventory.tag }}
-          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           envFrom:
