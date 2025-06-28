@@ -3,13 +3,13 @@ tenantName: tenant-b
 images:
   order:
     repository: docker.io/phwildzeiss/k8s-multi-tenant-order-service
-    tag: "20250628113710"
+    tag: latest
   inventory:
     repository: docker.io/phwildzeiss/k8s-multi-tenant-inventory
-    tag: "20250628104410"
+    tag: latest
   frontend:
     repository: docker.io/phwildzeiss/k8s-multi-tenant-frontend
-    tag: "20250628121728"
+    tag: latest
 
 resources:
   requests:
