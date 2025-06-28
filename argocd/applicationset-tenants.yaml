@@ -25,7 +25,7 @@ spec:
         argocd-image-updater.argoproj.io/inventory.update-strategy: digest
         argocd-image-updater.argoproj.io/inventory.allow-tags: ^latest$
         argocd-image-updater.argoproj.io/orders.helm.image-name: images.orders.repository
-        argocd-image-updater.argoproj.io/orders.helm.image-tag: images.orders.tag
+        argocd-image-updater.argoproj.io/orders.helm.image-tag: images.order.tag
         argocd-image-updater.argoproj.io/orders.update-strategy: digest
         argocd-image-updater.argoproj.io/orders.allow-tags: ^latest$
         argocd-image-updater.argoproj.io/write-back-method: argocd
