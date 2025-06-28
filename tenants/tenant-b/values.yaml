@@ -3,10 +3,10 @@ tenantName: tenant-b
 images:
   order:
     repository: phwildzeiss/k8s-multi-tenant-order-service
-    tag: "20250627184255"
+    tag: latest
   inventory:
     repository: phwildzeiss/k8s-multi-tenant-inventory
-    tag: "20250627184256"
+    tag: latest
   frontend:
     repository: phwildzeiss/k8s-multi-tenant-frontend
     tag: latest
