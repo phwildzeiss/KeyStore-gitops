@@ -31,8 +31,8 @@ spec:
       containers:
         - name: frontend
           image:
-            repository: {{ .Values.images.frontend.repository }}
-            tag: {{ .Values.images.frontend.tag }}
+            repository: "{{ .Values.images.frontend.repository }}"
+            tag: "{{ .Values.images.frontend.tag }}"
           ports:
             - containerPort: 8080
           envFrom:
