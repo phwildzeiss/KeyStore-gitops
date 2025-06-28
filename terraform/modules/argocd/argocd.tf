@@ -19,10 +19,6 @@ resource "helm_release" "argo_cd" {
   namespace        = "argocd"
   lint             = true
   wait             = true
-
-  depends_on = [
-    local_sensitive_file.kubeconfig
-  ]
 }
 
 locals {
