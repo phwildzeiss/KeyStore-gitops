@@ -18,7 +18,7 @@ spec:
         argocd-image-updater.argoproj.io/image-list: |
           orders=phwildzeiss/k8s-multi-tenant-order-service
           inventory=phwildzeiss/k8s-multi-tenant-inventory
-          frontend=phwildzeiss/k8s-multi-tenant-frontend
+          frontend=ghcr.io/phwildzeiss/k8s-multi-tenant-frontend
 
         argocd-image-updater.argoproj.io/orders.helm-value: images.order.tag
         argocd-image-updater.argoproj.io/orders.update-strategy: digest
@@ -26,8 +26,12 @@ spec:
         argocd-image-updater.argoproj.io/inventory.helm-value: images.inventory.tag
         argocd-image-updater.argoproj.io/inventory.update-strategy: digest
 
-        argocd-image-updater.argoproj.io/frontend.helm-value: images.frontend.tag
+        argocd-image-updater.argoproj.io/frontend.helm.image-name: images.frontend.repository
+        argocd-image-updater.argoproj.io/frontend.helm.image-tag: images.frontend.tag
         argocd-image-updater.argoproj.io/frontend.update-strategy: digest
+
+        argocd-image-updater.argoproj.io/write-back-method: argocd
+
     spec:
       project: default
       source:
