@@ -16,15 +16,17 @@ spec:
       name: '{{path.basename}}-app'
       annotations:
         argocd-image-updater.argoproj.io/image-list: |
-          orders=ghcr.io/phwildzeiss/k8s-multi-tenant-order-service
-          inventory=ghcr.io/phwildzeiss/k8s-multi-tenant-inventory
-          frontend=ghcr.io/phwildzeiss/k8s-multi-tenant-frontend
+          orders=phwildzeiss/k8s-multi-tenant-order-service
+          inventory=phwildzeiss/k8s-multi-tenant-inventory
+          frontend=phwildzeiss/k8s-multi-tenant-frontend
 
         argocd-image-updater.argoproj.io/orders.helm.image-name: images.order.repository
         argocd-image-updater.argoproj.io/orders.helm.image-tag: images.order.tag
+        argocd-image-updater.argoproj.io/orders.update-strategy: digest
 
         argocd-image-updater.argoproj.io/inventory.helm.image-name: images.inventory.repository
         argocd-image-updater.argoproj.io/inventory.helm.image-tag: images.inventory.tag
+        argocd-image-updater.argoproj.io/inventory.update-strategy: digest
 
         argocd-image-updater.argoproj.io/frontend.helm.image-name: images.frontend.repository
         argocd-image-updater.argoproj.io/frontend.helm.image-tag: images.frontend.tag
