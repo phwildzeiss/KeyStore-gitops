@@ -136,3 +136,15 @@ module "ingress" {
 
   depends_on = [null_resource.wait_for_kubeconfig]
 }
+
+module "argocd" {
+  source                 = "./modules/argocd"
+  git_username           = var.git_username
+  git_token              = var.git_token
+  providers = {
+    exoscale   = exoscale
+    kubernetes = kubernetes.cluster
+  }
+
+  depends_on = [null_resource.wait_for_kubeconfig]
+}

@@ -1,3 +1,14 @@
+terraform {
+  required_providers {
+    exoscale = {
+      source = "exoscale/exoscale"
+    }
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+    }
+  }
+}
+
 resource "helm_release" "argo_cd" {
   name             = "argocd"
   repository       = "https://argoproj.github.io/argo-helm"
