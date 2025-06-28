@@ -47,7 +47,7 @@ resource "helm_release" "argo_cd_image_updater" {
   name             = "argocd-image-updater"
   repository       = "https://argoproj.github.io/argo-helm"
   chart            = "argocd-image-updater"
-  version          = "0.16.1"
+  version          = "0.12.3"
   namespace        = "argocd"
   create_namespace = false
   wait             = true
