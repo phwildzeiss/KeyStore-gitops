@@ -15,6 +15,10 @@ spec:
     metadata:
       name: '{{path.basename}}-app'
       annotations:
+        argocd-image-updater.argoproj.io/image-list: |
+          frontend=docker.io/phwildzeiss/k8s-multi-tenant-frontend,
+          inventory=docker.io/phwildzeiss/k8s-multi-tenant-inventory,
+          orders=docker.io/phwildzeiss/k8s-multi-tenant-order-service
         argocd-image-updater.argoproj.io/frontend.helm.image-name: images.frontend.repository
         argocd-image-updater.argoproj.io/frontend.helm.image-tag: images.frontend.tag
         argocd-image-updater.argoproj.io/frontend.allow-tags: ^[0-9]{14}$
