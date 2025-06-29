@@ -23,6 +23,9 @@ resource "helm_release" "argo_cd" {
   values = [
     yamlencode({
       configs = {
+        cm = {
+          "helm.valuesFileOptions" = "--skip-missing-values"
+        }
         repositories = [
           {
             url      = "https://github.com/phwildzeiss/KeyStore-gitops"
