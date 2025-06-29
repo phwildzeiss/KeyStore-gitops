@@ -1,0 +1,20 @@
+helm:
+  parameters:
+  - name: images.frontend.repository
+    value: docker.io/phwildzeiss/k8s-multi-tenant-frontend
+    forcestring: true
+  - name: images.frontend.tag
+    value: "20250629090547"
+    forcestring: true
+  - name: images.inventory.repository
+    value: docker.io/phwildzeiss/k8s-multi-tenant-inventory
+    forcestring: true
+  - name: images.inventory.tag
+    value: "20250629090548"
+    forcestring: true
+  - name: images.order.repository
+    value: docker.io/phwildzeiss/k8s-multi-tenant-order-service
+    forcestring: true
+  - name: images.order.tag
+    value: "20250629090548"
+    forcestring: true
