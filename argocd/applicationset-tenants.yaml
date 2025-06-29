@@ -41,7 +41,7 @@ spec:
         helm:
           valueFiles:
             - '../tenants/{{path.basename}}/values.yaml'            # Tenant-spezifische Werte
-            - '../tenants/{{path.basename}}/.argocd-source-{{path.basename}}-app.yaml'  # Image-Updater-Datei im Tenant-Verzeichnis
+            - '.argocd-source-{{path.basename}}-app.yaml'  # Image-Updater-Datei im Tenant-Verzeichnis
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'          # z. B. tenant-a
