@@ -27,7 +27,7 @@ spec:
         argocd-image-updater.argoproj.io/order.update-strategy: newest-build
         argocd-image-updater.argoproj.io/write-back-method: git
         argocd-image-updater.argoproj.io/git-branch: main
-        argocd-image-updater.argoproj.io/write-back-target: ".argocd-source-{{path.basename}}-app.yaml"
+        argocd-image-updater.argoproj.io/write-back-target: "../tenants/{{path.basename}}/app.yaml"
         argocd-image-updater.argoproj.io/write-back-path: "../tenants/{{path.basename}}"
         argocd-image-updater.argoproj.io/helm-image-policy: enabled
         argocd-image-updater.argoproj.io/frontend.force-update: "true"
@@ -41,7 +41,7 @@ spec:
         helm:
           valueFiles:
             - '../tenants/{{path.basename}}/values.yaml'            # Tenant-spezifische Werte
-            - '.argocd-source-{{path.basename}}-app.yaml'  # Image-Updater-Datei im Tenant-Verzeichnis
+            - '../tenants/{{path.basename}}/app.yaml'  # Image-Updater-Datei im Tenant-Verzeichnis
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'          # z. B. tenant-a
