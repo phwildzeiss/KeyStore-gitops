@@ -4,17 +4,17 @@ helm:
     value: docker.io/phwildzeiss/k8s-multi-tenant-frontend
     forcestring: true
   - name: images.frontend.tag
-    value: latest
+    value: "20250701180538"
     forcestring: true
   - name: images.inventory.repository
     value: docker.io/phwildzeiss/k8s-multi-tenant-inventory
     forcestring: true
   - name: images.inventory.tag
-    value: latest
+    value: "20250701180537"
     forcestring: true
   - name: images.order.repository
     value: docker.io/phwildzeiss/k8s-multi-tenant-order-service
     forcestring: true
   - name: images.order.tag
-    value: latest
+    value: "20250701180540"
     forcestring: true
