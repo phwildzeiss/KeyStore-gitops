@@ -43,7 +43,7 @@ spec:
           parameters: []  # ArgoCD Image Updater überschreibt diese automatisch
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'          # z. B. tenant-a
+        namespace: '{{path.basename}}'          # z. B. tenant-a, oder tenant-b
       syncPolicy:
         automated:
           prune: true
